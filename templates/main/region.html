@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/Qashqadaryo.css" %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+<body style="margin-left: -182px;">
+
+
+{#<nav style="width: 1367px; height: 44px" class="navbar navbar-expand-md navbar-dark bg-dark">#}
+{#    <div class="container">#}
+{##}
+{#        <a class="navbar-brand" href="#">Navbar</a>#}
+{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"#}
+{#                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#            <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
+{##}
+{#        <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#            <ul class="navbar-nav ml-auto">#}
+{#                <li class="nav-item active">#}
+{#                    <a class="nav-link" href="../kirish.html">Asosiy <span class="sr-only">(current)</span></a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="login-in.html">Login</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Joylash</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="../html/eder.html">E'lonlar</a>#}
+{#                </li>#}
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"#}
+{#                       data-toggle="dropdown" aria-expanded="false">#}
+{#                        Uz#}
+{#                    </a>#}
+{#                    <div class="dropdown-menu dropdown-dark bg-dark" aria-labelledby="navbarDropdown ">#}
+{#                        <a class="dropdown-item" href="#" style="color: white">Ru</a>#}
+{#                    </div>#}
+{#                </li>#}
+{##}
+{#            </ul>#}
+{#        </div>#}
+{#        <li class="nav-item dropdown nav-user">#}
+{#            <a style=" height: 45px;" class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"#}
+{#               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img#}
+{#                    src="{% static "img/WIN_20220519_15_21_05_Pro.jpg" %}" alt="" class="user-avatar-md rounded-circle"></a>#}
+{#            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">#}
+{#                <div class="nav-user-info">#}
+{#                    <h6 class="mb-0 text-white nav-user-name">Jo'rayev Sherali</h6>#}
+{#                    <span class="status"></span><span class="ml-2">O'zbekistan</span>#}
+{#                </div>#}
+{#                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>#}
+{#                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>#}
+{#                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>#}
+{#            </div>#}
+{#        </li>#}
+{#    </div>#}
+{#</nav>#}
+{#{% block content %}#}
+{#<div class="row">#}
+{#    <div class="col-4">#}
+{% include "main/navbar.html" %}
+{#    </div>#}
+{#{% endblock %}#}
+{#    <div class="col-6">#}
+<div class="container">
+    <div class="row" style="margin-left: 400px;">
+        {#                <div class="col-lg-8 order-lg-0 order-2">#}
+        <div class="row">
+            {% for i in post_re %}
+                <div class="col-md-4 mb-4">
+                    <img class="" style="height: 225px !important; width: 108% !important;"
+                         src="{{ i.img.url }}"
+                         alt="">
+                </div>
+                <div class="col-md-8 mb-4">
+                    <div class="d-flex align-items-center">
+                        <span class="bg-org">{{ i.region.name_uz }}</span>
+                    </div>
+                    <div>
+                        <p class="text-capitalize fs5 my-3 fw-bolder">{{ i.name_uz }}</p>
+                        <p class="text-muted">{{ i.text_uz }}</p>
+                        <div class="d-flex justify-content-lg-start">
+                            <div>
+                                <p><b style="color: #0b2e13">Telefon:</b> <span
+                                        style="color: #34ce57"><b>{{ i.number }}</b></span></p>
+                            </div>
+                            <p style="border: 1px solid red"></p>
+                            <p><b style="color: #0b2e13; margin-left: 12px">Ish vaqti:</b> <span
+                                    style="color: red; margin-left: 12px">{{ i.vaqt }}</span></p>
+                            <p style="border: 1px solid red"></p>
+                            <div style="width: 154px; margin-left: 12px">
+                                <p><b style="color: black">Mydon soni</b>: <span
+                                        style="color: #00cc00">{{ i.maydon_soni }}</span></p>
+                            </div>
+                            <p style="border: 1px solid red"></p>
+                            <div style="width: 45px">
+                                <p><b style="color: black; margin-left: 12px">Puli:</b> <span
+                                        style="color: #20c997; margin-left: 12px">{{ i.price }}So'm</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{#    </div>#}
+{#</div>#}
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

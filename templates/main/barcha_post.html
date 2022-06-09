@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha Maydonlar</title>
+    <link rel="stylesheet" href="{% static "css/Qashqadaryo.css" %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+<body style="margin-left: -182px;">
+
+
+{% include "main/navbar.html" %}
+<div class="container">
+    <div class="row" style="margin-left: 400px;">
+        {#                <div class="col-lg-8 order-lg-0 order-2">#}
+        <div class="row">
+            {% for i in malumot %}
+                <div class="col-md-4 mb-4">
+                    <img class="" style="height: 225px !important; width: 108% !important;"
+                         src="{{ i.img.url }}"
+                         alt="">
+                </div>
+                <div class="col-md-8 mb-4">
+                    <div class="d-flex align-items-center">
+                        <span class="bg-org">{{ i.region.name_uz }}</span>
+                    </div>
+                    <div>
+                        <p class="text-capitalize fs5 my-3 fw-bolder">{{ i.name_uz }}</p>
+                        <p class="text-muted">{{ i.text_uz }}</p>
+                        <div class="d-flex justify-content-lg-start">
+                            <div>
+                                <p><b style="color: #0b2e13">Telefon:</b> <span
+                                        style="color: #34ce57"><b>{{ i.number }}</b></span></p>
+                            </div>
+                            <p style="border: 1px solid red"></p>
+                            <p><b style="color: #0b2e13; margin-left: 12px">Ish vaqti:</b> <span
+                                    style="color: red; margin-left: 12px">{{ i.vaqt }}</span></p>
+                            <p style="border: 1px solid red"></p>
+                            <div style="width: 154px; margin-left: 12px">
+                                <p><b style="color: black">Mydon soni</b>: <span
+                                        style="color: #00cc00">{{ i.maydon_soni }}</span></p>
+                            </div>
+                            <p style="border: 1px solid red"></p>
+                            <div style="width: 45px">
+                                <p><b style="color: black; margin-left: 12px">Puli:</b> <span
+                                        style="color: #20c997; margin-left: 12px">{{ i.price }}So'm</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{#    </div>#}
+{#</div>#}
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

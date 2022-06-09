@@ -1,0 +1,269 @@
+{#<form method="post" enctype="multipart/form-data" action="">#}
+{#    {% csrf_token %}#}
+{#    <tr>#}
+{#        <th><label for="id_region">Region:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <select name="region" required id="id_region">#}
+{#                <option value="" selected>---------</option>#}
+{#                <option value="3">Qashqadoryo viloyati</option>#}
+{#                <option value="4">Toshkent shahar</option>#}
+{#                <option value="5">Xorazim viloyati</option>#}
+{#            </select>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_district">District:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <select name="district" required id="id_district">#}
+{#                <option value="" selected>---------</option>#}
+{#                <option value="1">Yakkabog&#x27; tumani</option>#}
+{#                <option value="2">Koson tumani</option>#}
+{#                <option value="3">Chorsu tumani</option>#}
+{#            </select>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_name_uz">Name uz:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="text" name="name_uz" maxlength="250" required id="id_name_uz">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_name_ru">Name ru:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="text" name="name_ru" maxlength="250" required id="id_name_ru">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_text_uz">Text uz:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#        <textarea name="text_uz" cols="40" rows="10" required id="id_text_uz"></textarea>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_text_ru">Text ru:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#        <textarea name="text_ru" cols="40" rows="10" required id="id_text_ru"></textarea>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_number">Number:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="text" name="number" maxlength="250" required id="id_number">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_telegram">Telegram:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="text" name="telegram" maxlength="250" required id="id_telegram">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_vaqt">Vaqt:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="text" name="vaqt" maxlength="250" required id="id_vaqt">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_price">Price:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="number" name="price" min="0" required id="id_price">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_img">Img:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="file" name="img" accept="image/*" required id="id_img">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <tr>#}
+{#        <th><label for="id_maydon_soni">Maydon soni:</label></th>#}
+{#        <br>#}
+{#        <td>#}
+{#            <input type="number" name="maydon_soni" required id="id_maydon_soni">#}
+{#        </td>#}
+{#    </tr>#}
+{#    <br>#}
+{#    <button type="submit"#}
+{#            class="btn btn-block btn-dark btn-theme-colored btn-sm mt-20 pt-10 pb-10"#}
+{#            data-loading-text="Please wait...">Saqlash#}
+{#    </button>#}
+{#</form>#}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maydon joylash</title>
+    <link rel="stylesheet" href="{% static "css/new98.css" %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="row">
+    <div class="col-4">
+        {% include "main/navbar.html" %}
+    </div>
+    <div class="col-4 mt-4">
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="id_region"><b>Viloyat tanlash</b></label>
+
+                    <select class="form-control" name="district" id="id_district">
+                        {% for i in post_r %}
+                            <option>{{ i.name_uz }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><b>Tuman tanlash</b></label>
+                    <select class="form-control" name="district" required id="id_district">
+                        {% for i in dic_r %}
+                            <option>{{ i.name_uz }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Maydon haqida</b></label>
+                    <input type="text" class="form-control" name="name_uz" id="id_name_uz" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">...........</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"><b>Maydon haqida malumot</b></label>
+                    <textarea class="form-control" id="id_text_uz" rows="3"></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Telefon raqam</b></label>
+                    <input type="number" class="form-control" id="id_number" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">...........</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Telegram username</b></label>
+                    <input type="text" class="form-control" id="id_telegram" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">...........</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Ish vaqti</b></label>
+                    <input type="text" class="form-control" id="id_vaqt" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">...........</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Maydon puli</b></label>
+                    <input type="text" class="form-control" id="id_price" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">Maydon 1 soatlik vaqti</small>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleFormControlFile1"><b>Maydon rasmi</b></label>
+                    <input type="file" name="img" accept="image/*" required id="id_img">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Maydon soni</b></label>
+                    <input type="number" class="form-control" id="id_maydon_soni" aria-describedby="emailHelp">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Saqlash</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<footer style="margin-block-start: 37px;" id="footer">
+    <div class="container">
+        <div class="row"></div>
+        <div class="col-lg-6">
+            <form action="" method="post"></form>
+        </div>
+    </div>
+    </div> </div>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-links"><h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links"><h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-contact"><h4>Contact Us</h4>
+                    <p> A108 Adam Street <br> New York, NY 535022<br> United States <br><br> <strong>Phone:</strong> +1
+                        5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p></div>
+                <div class="col-lg-3 col-md-6 footer-info"><h3>About DevVE</h3>
+                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
+                        valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                    <div class="social-links mt-3"><a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> <a
+                            href="#" class="facebook"><i class="bx bxl-facebook"></i></a> <a href="#" class="instagram"><i
+                            class="bx bxl-instagram"></i></a> <a href="#" class="linkedin"><i
+                            class="bx bxl-linkedin"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright"> &copy; Copyright <strong><span>DevVE</span></strong>. All Rights Reserved</div>
+        <div class="credits"> Designed by <a href="#">SalvadorDevVE</a></div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
